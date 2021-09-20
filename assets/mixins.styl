@@ -1,0 +1,66 @@
+// BREAKPOINTS
+
+$breakpoints = {
+    xxs: "only screen and (max-width: 374px)",
+    xs: "only screen and (min-width: 375px) and (max-width: 480px)",
+    sm: "only screen and (min-width: 481px) and (max-width: 780px)",
+    md: "only screen and (min-width: 781px) and (max-width: 1079px)",
+    lg: "only screen and (min-width: 1080px) and (max-width: 1379px)",
+    xl: "only screen and (min-width: 1380px)",
+}
+
+$animation-timing = cubic-bezier(0.5, 0.3, 0.2, 1.0)
+$animation-duration = 0.3s
+$animation-delay = 0
+
+transition(property = all, duration = $animation-duration, delay = $animation-delay, timing = $animation-timing)
+  transition-property property
+  transition-duration duration
+  transition-timing-function timing
+  transition-delay delay
+  backface-visibility hidden
+
+middle()
+  position absolute
+  left 50%
+  top 50%
+  transform translate(-50%, -50%)
+
+
+for_breakpoint(b)
+    conditions = ()
+
+    for breakpoint in b
+        push(conditions, $breakpoints[breakpoint])
+
+    conditions = join(", ", conditions)
+
+    @media conditions
+        {block}
+
+
+ratio($width, $height)
+  position relative
+
+  &:before
+    display block
+    content ''
+    width 100%
+    padding-top ($height / $width) * 100%
+
+  &> .has-ratio
+    position absolute
+    top 0
+    left 0
+    right 0
+    bottom 0
+
+
+grid(cols, gap = $space-m) {
+    display inline-grid
+    grid-template-columns cols
+    grid-gap gap
+
+    -mx-grid-template-columns cols
+    -ms-grid-gap gap
+}

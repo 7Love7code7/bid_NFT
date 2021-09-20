@@ -1,0 +1,197 @@
+$dark-border = 1px solid lighten($dark, 10%)
+$dark-background = $dark
+$dark-text = $white
+
+$light-border = 1px solid darken($white, 10%)
+$light-background = $white
+$light-text = $dark
+
+// BUTTONS
+dark-button()
+    color $dark-text
+    background-color $dark-background
+    border $dark-border
+
+    &:hover,
+    &:active,
+    &:focus,
+    &.nuxt-link-exact-active
+        background-color lighten($dark, 10%) !important
+        border 1px solid lighten($dark, 20%) !important
+        color $dark-text !important
+
+light-button()
+    color $light-text
+    background-color $light-background
+    border $light-border
+
+    &:hover,
+    &:active,
+    &:focus,
+    &.nuxt-link-exact-active
+        background-color darken($light, 2%) !important
+        border 1px solid darken($light, 20%) !important
+        color $light-text !important
+
+
+// DARK
+.dark-mode
+    background-color $dark-background
+
+    .container.is-themed
+        .heading
+            color $dark-text
+
+    .connect-wrap
+        color $dark-text
+
+        a,
+        button
+            dark-button()
+
+    .empty-state
+        color $dark-text
+
+    .el-drawer
+        background-color $dark-background
+        border-top $dark-border
+        color $grey
+
+    .el-button.is-themed
+        dark-button()
+
+    .nav.is-themed
+        background-color $dark-background
+        border-bottom $dark-border
+        color $dark-text
+
+        a.is-themed
+            dark-button()
+
+        svg
+            fill $dark-text
+
+    .card.is-themed
+        border $dark-border
+        background-color darken($dark, 10%)
+        color $dark-text
+
+        &:hover
+            background-color lighten($dark, 5%)
+
+        .el-tag
+            background-color darken($dark, 10%)
+            border-color transparent
+
+    .el-carousel.is-themed
+        background-color $dark-background
+        color $dark-text
+
+        .el-carousel__item:nth-child(2n)
+            background-color darken($dark-background, 20%)
+
+        .el-carousel__item:nth-child(2n+1)
+            background-color darken($dark-background, 10%)
+
+    article.is-themed
+        color $dark-text
+
+        a
+            color $dark-text
+
+        .el-button
+            dark-button()
+
+
+    .slide-text.is-themed
+        color $dark-text
+        border-top $dark-border
+        border-bottom $dark-border
+
+        a
+            dark-button()
+
+    .el-dialog
+        background-color $dark-background
+        color $dark-text
+
+        .el-dialog__title
+            color $dark-text
+
+
+// LIGHT
+.light-mode
+    background-color $light-background
+
+    .container.is-themed
+        .heading
+            color $light-text
+
+    .connect-wrap
+        color $light-text
+
+        a,
+        button
+            light-button()
+
+    .empty-state
+        color $light-text
+
+    .el-drawer
+        background-color $light-background
+        border-top $light-border
+        color $grey
+
+    .el-button.is-themed
+        light-button()
+
+    .nav.is-themed
+        background-color $light-background
+        border-bottom $light-border
+        color $light-text
+
+        a.is-themed
+            light-button()
+
+        svg
+            fill $light-text
+
+    .card.is-themed
+        border $light-border
+        background-color $light-background
+        color $light-text
+
+        &:hover
+            border-color darken($white, 15%)
+
+        .el-tag
+            background-color $light-background
+            border-color transparent
+
+    .el-carousel.is-themed
+        background-color $light-background
+        color $light-text
+
+        .el-carousel__item:nth-child(2n)
+            background-color darken($light-background, 20%)
+
+        .el-carousel__item:nth-child(2n+1)
+            background-color darken($light-background, 10%)
+
+    article.is-themed
+        color $light-text
+
+        a
+            color $light-text
+
+        .el-button
+            light-button()
+
+
+    .slide-text.is-themed
+        color $light-text
+        border-top $light-border
+        border-bottom $light-border
+
+        a
+            light-button()

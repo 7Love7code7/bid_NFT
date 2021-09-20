@@ -1,0 +1,16 @@
+name: MyNFT
+region: nyc
+services:
+- build_command: npm run build
+  environment_slug: node-js
+  github:
+    branch: master
+    deploy_on_push: true
+    repo: MyNFT/MyNFTUI
+  http_port: 8080
+  instance_count: 1
+  instance_size_slug: professional-xs
+  name: MyNFT
+  routes:
+  - path: /
+  run_command: npm start -- --hostname 0.0.0.0 --port 8080
